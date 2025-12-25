@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff">
+    <title>Sync Test Fixed</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/cards.css">
+    <link rel="stylesheet" href="styles/stamp.css">
+    <link rel="stylesheet" href="styles/results.css">
+    <script type="module" src="js/main.js"></script>
+
+</head>
+
+<body>
+
+    <template id="tpl-card">
+        <div class="card-inner">
+            <div class="card-front">
+                <small class="card-cat"></small>
+                <h2 class="card-title"></h2>
+            </div>
+            <div class="card-back">
+                <h3 class="card-title-back"></h3>
+                <p class="card-desc"></p>
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-result-item">
+        <div class="res-item">
+            <strong class="res-title"></strong>
+            <div class="badge-container"></div>
+        </div>
+    </template>
+
+    <template id="tpl-empty-result">
+        <div class="res-empty"></div>
+    </template>
+
+    <template id="tpl-badge">
+        <span class="badge"></span>
+    </template>
+
+
+
+    <div id="v-home" class="view active">
+        <h1 data-i18n="home.title"></h1>
+        <p data-i18n="home.subtitle"></p>
+
+        <div class="code-input-area">
+            <h3 data-i18n="hub.myTitle"></h3>
+
+            <div class="input-wrap" id="wrap-my">
+                <input type="text" id="code-input-my" data-i18n-placeholder="hub.inputPlaceholder">
+                <button type="button" class="input-mix" id="btn-share-my" data-action="share"
+                    aria-label="Share">⤴︎</button>
+            </div>
+        </div>
+
+
+        <div class="code-input-area">
+            <h3 data-i18n="hub.compareTitle"></h3>
+
+            <div class="input-wrap">
+                <input type="text" id="code-input-partner" data-i18n-placeholder="hub.inputPlaceholder">
+                <button type="button" class="input-mix" id="btn-clear-partner" data-action="clearPartner"
+                    aria-label="Clear">×</button>
+            </div>
+
+        </div>
+
+        <div style="flex:1"></div>
+
+        <!-- основная (Начать тест / Передать телефон) -->
+        <button class="btn btn-primary" id="btn-home-main" data-action="startNew" data-i18n="home.start"></button>
+
+        <!-- появляется только когда оба кода заполнены -->
+        <button class="btn btn-primary" id="btn-home-result" data-action="showResultHome" data-i18n="hub.showResults"
+            style="display:none"></button>
+
+    </div>
+
+
+
+
+
+
+
+
+    <div id="v-quiz" class="view">
+        <div id="counter" style="color:#bbb; font-weight:bold; margin-bottom:10px;">1/10</div>
+
+        <div class="card-area">
+            <div id="active-card" class="card-wrapper"></div>
+        </div>
+
+        <div
+            style="display:flex; justify-content:space-between; width:var(--card-max-w); margin-top:20px; font-size:14px; color:#888; font-weight:bold;">
+            <span id="hint-l">← Нет</span>
+            <span id="hint-r">Да →</span>
+        </div>
+
+        <div style="flex:1"></div>
+        <button class="btn btn-text" data-action="skip" data-i18n="quiz.skip"></button>
+        <div style="font-size:12px; color:#ddd; margin-bottom:10px;" data-i18n="quiz.tapToFlip"></div>
+    </div>
+
+
+
+    <div id="v-wait" class="view">
+        <h2 data-i18n="hub.title"></h2>
+        <p data-i18n="hub.subtitle"></p>
+
+        <button class="btn btn-primary" data-action="passDevice" data-i18n="hub.passDevice"></button>
+
+        <button class="btn btn-outline" data-action="share" data-i18n="hub.share"></button>
+
+        <div class="code-input-area">
+            <h3 data-i18n="hub.compareTitle"></h3>
+            <input type="text" id="code-input-hub" data-i18n-placeholder="hub.inputPlaceholder">
+            <button class="btn btn-primary" data-action="showResults" id="btn-show-results"
+                data-i18n="hub.showResults"></button>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+    <div id="v-result" class="view">
+        <h2 data-i18n="result.title"></h2>
+        <p id="score" style="margin-bottom: 20px;" data-i18n="result.intro"></p>
+
+        <div class="results-list" id="res-box"></div>
+
+        <div style="flex:1;"></div>
+        <button class="btn btn-primary" data-action="backHome" data-i18n="result.backToHub"></button>
+
+    </div>
+
+</body>
+
+</html>

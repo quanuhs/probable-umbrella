@@ -1,0 +1,38 @@
+/* ШТАМПЫ (Лежат в Wrapper, но вне Inner) */
+.stamp {
+    position: absolute;
+    top: 40px;
+    padding: 8px 12px;
+    border: 4px solid;
+    border-radius: 8px;
+    font-size: 32px;
+    font-weight: 800;
+    text-transform: uppercase;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.stamp-no {
+    right: 40px;
+    color: var(--danger);
+    border-color: var(--danger);
+    transform: rotate(15deg);
+}
+
+.stamp-yes {
+    left: 40px;
+    color: var(--success);
+    border-color: var(--success);
+    transform: rotate(-15deg);
+}
+
+.role-mode .stamp-no {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.role-mode .stamp-yes {
+    color: var(--accent);
+    border-color: var(--accent);
+}
